@@ -1,8 +1,9 @@
 <?php
 session_start();
+$self_url = $_SERVER['PHP_SELF'];
 ?>
 
-<form action="" method="POST">
+<form action="$self_url" method="POST">
     <input type="text" name="content">
     <input type="submit" name="type" value="create">
 </form>
@@ -25,6 +26,7 @@ if (isset($_POST['type'])) {
 if (empty($_SESSION['todos'])) {
     $_SESSION['todos'] = [];
     echo 'Input something.';
+    die();
 }
 ?>
 
@@ -33,7 +35,7 @@ if (empty($_SESSION['todos'])) {
 <!-- <ul> -->
     <?php foreach ($_SESSION['todos'] as $i => $value) : ?>
         <!-- <li> -->
-            <form action="" method="POST">
+            <form action="$self_url" method="POST">
 
                 <input type="hidden" name="id" value="<?php echo $i; ?>">
 
