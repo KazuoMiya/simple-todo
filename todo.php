@@ -19,13 +19,14 @@ if (isset($_POST['type'])) {
     } elseif ($_POST['type'] === 'delete') {
         array_splice($_SESSION['todos'], $_POST['id'], 1);
         echo "Task: \"{$_POST['content']}\" was deleted.<br>";
+        echo "<br>";
     }
 }
 ?>
 <?php
 if (empty($_SESSION['todos'])) {
     $_SESSION['todos'] = [];
-    echo 'Input something.';
+    echo '【Input something.】';
     die();
 }
 ?>
